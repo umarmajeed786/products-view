@@ -1,12 +1,4 @@
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-html,body{
-	overflow-x: hidden;
-    background: #eee;
-}
+
 /*** SIDE BAR ****/
 .icon {
    background:#8c9aab;
