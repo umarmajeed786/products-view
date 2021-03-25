@@ -1,11 +1,11 @@
-/**{
+*{
     margin: 0 !important;
     padding: 0 !important;
     box-sizing: border-box !important;
 }
 html,body{
     overflow-x: hidden !important;
-}*/
+}
 /*** SIDE BAR ****/
 .icon {
    background:#8c9aab  !important;
