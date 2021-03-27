@@ -52,12 +52,10 @@
                                     </a>
                                     <?php
                                 endif;
-                                if (check_route('delete-product', 'post')):
                                     ?>
                                     <button class="btn btn-danger delete-product" data-id="<?= $value->product_id ?>" title="Delete Product">
                                         <span class="fa fa-trash"></span>
                                     </button>
-                                <?php endif; ?>
                             </td>
                         </tr>
 

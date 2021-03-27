@@ -82,7 +82,7 @@ class Portal extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]');
         $this->form_validation->set_rules('passconf', 'Password Confirmation', 'trim|required|matches[password]');
         if (!$this->form_validation->run()) {
-            $data["page_title"] = "Pakistan Lawyers";
+            $data["page_title"] = "Spycity";
             $this->load->view('portal/signup', $data);
         } else {
             $_POST['active'] = 0;
@@ -92,7 +92,7 @@ class Portal extends CI_Controller {
                 $htmlContent .= '<p>Click on the link below to verify your email.</p>';
                 $htmlContent .= '<p><a href="' . base_url('user') . '/email-verify/' . $secret . '">Email Verify</a></p>';
                 $body = $htmlContent;
-                $subject = "Nephrology account verification ";
+                $subject = "Spycity account verification ";
                 $msg = 'Your account successfully created';
                 $to = $this->input->post('email');
                 if (send_email_using_template($body, $to, $subject)) {
@@ -353,7 +353,7 @@ class Portal extends CI_Controller {
     public function public_products_detail($id) {
 
         $data['product'] = $product = $this->portal_model->get_all_products($id)->get()->row();
-        $data['page_title'] = $product->product_name;
+        $data['page_title'] = '';
         $data['main_view'] = "portal/public_product_detail";
         $this->load->view('portal/layout', $data);
     }

@@ -61,6 +61,15 @@ class Portal_model extends CI_model {
         }
     }
 
+    public function get_users_route_access($url, $type) {
+        $this->db->select('*')->from('users');
+        $this->db->join('user_roles_permissions', 'users.user_role_id = user_roles_permissions.user_role_id', 'left');
+        $this->db->join('user_permissions', 'user_permissions.user_permission_id = user_roles_permissions.user_permission_id', 'left');
+        $this->db->where('users.id', $this->session->userdata('user_id'));
+        $this->db->where('user_permissions.user_permission_url', $url);
+        return $this->db->where('user_permissions.user_permission_type', $type)->get()->row();
+    }
+
     public function user_check_secret_code($secret) {
         $this->db->where('secret_code', $secret);
         $result = $this->db->get('users');
@@ -232,8 +241,6 @@ class Portal_model extends CI_model {
         }
     }
 
-
-
     public function add_user_roles_permissions_save() {
         $this->db->where('user_role_id', $this->input->post('user_role_id'))->delete('user_roles_permissions');
         $data = array();
@@ -306,13 +313,23 @@ class Portal_model extends CI_model {
             'created_at' => date('Y-m-d H:i:s', time()),
             'created_by' => $this->session->userdata('user_id')
         );
+        
         foreach ($_POST as $key => $value) {
             $data[$key] = $value;
         }
+        
+        $user_id= time();
+        
         if (isset($_FILES['cover_image']) && $_FILES['cover_image']['name'] != '') {
             $config['upload_path'] = './uploads/images/';
             $config['allowed_types'] = 'jpg|png|jpeg';
-            $config['file_name'] = time() . clean_image($_FILES['cover_image']['name']);
+            
+            $file_type = pathinfo($_FILES['cover_image']['name'], PATHINFO_EXTENSION);
+            $remove_dot_file = str_replace('.', '', $_FILES['cover_image']['name']);
+            $remove_dot_file = str_replace($file_type, '', $remove_dot_file);
+            $file = $remove_dot_file . '.' . $file_type;
+            $config['file_name'] = clean_image($user_id . '-' . $file);
+            
             $profile_image = $config['file_name'];
             $this->upload->initialize($config);
             if ($this->upload->do_upload('cover_image')) {
@@ -322,6 +339,7 @@ class Portal_model extends CI_model {
         $result = $this->db->insert('products', $data);
         return $result;
     }
+
     public function edit_product_save($id) {
         $data = array(
             'updated_at' => date('Y-m-d H:i:s', time()),

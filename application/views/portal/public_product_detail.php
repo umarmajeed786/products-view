@@ -1,16 +1,17 @@
 <link href="<?= base_url('assets/styles') ?>/product-detail.css">
+<title><?=$product->product_name?></title>
 <div class="row" >
     <div class="container-fluid">
-        <div class="row row1 justify-content-md-center">
+        <div class="row  justify-content-md-center">
             <div class="col-sm-3 mr-3 ml-3 first">
-                <a href="#back">
+                <a href="<?= base_url('public-products') ?>">
                     <div class="icon">
                         <i>
-                            <img src="<?= base_url('uploads/images/') . $product->cover_image ?>" alt="back">
+                            <img src="<?= base_url('assets/images/') ?>bac115b8ddd.svg" alt="back">
                         </i>
                     </div>
                     <div class="text_back">
-                        Slingo-Foldable Keychain Gun
+                        <?=$product->product_name?>
                     </div>
                 </a>
             </div>
@@ -18,28 +19,36 @@
         </div>
         <div class="row justify-content-md-center main">
             <div class="col-sm-3  mr-3 ml-3">
-                <div class="row">
-                    <div class="row2">
-                        <h6 class="text-right">Published: Mar 11 2021
-                        </h6>
-                        <button class="btn btn-secondary btn-block">View Competitor Store</button>
+            <div class="row">
+                <div class="center_images">
+                        <div class="img1">
+                            <img src="<?= base_url('uploads/images/') . $product->cover_image ?>" class="mx-auto d-block"></div>
+                        <div class="img2">
+                            <img src="<?= base_url('uploads/images/') . $product->cover_image ?>" class="mx-auto"></div>
                     </div>
+                <div class="row2">
+                    <h6 class="text-right">Published: <?=date('M d Y', strtotime($product->date))?>
+                    </h6>
+                    <a target="_blank" href="<?=$product->competitor_store_url?>">
+                    <button  class="btn btn-secondary btn-block">View Competitor Store</button>
+                    </a>
                 </div>
+            </div>
             </div>
             <div class="col-sm-8 mr-3 ml-3 ">
                 <div class="row justify-content-md-center">
                     <div class="col-sm items pt-4 pb-4 mr-4  mt-2 mb-2">
                         <div class="items_main">
                             <div class="left_sidebar">
-                                <i><img src="<?= base_url('assets') ?>/Images/box.svg" alt="Product"></i>
+                                <i><img src="<?= base_url('assets') ?>/images/box.svg" alt="Product"></i>
                             </div>
                             <div class="right">
                                 <div class="sub_item1">
                                     <div class="sub_item1_left">
-                                        <small>$6.99</small>
+                                        <small>$<?=$product->cogs?></small>
                                     </div>
                                     <div class="sub_item1_right">
-                                        <img src="<?= base_url('assets') ?>/Images/info.svg" alt="">
+                                        <img src="<?= base_url('assets') ?>/images/info.svg" alt="">
                                     </div>
                                 </div>
                                 <div class="sub_item2">
@@ -51,15 +60,15 @@
                     <div class="col-sm items pt-4 pb-4 mr-4 mt-2 mb-2 ">
                         <div class="items_main">
                             <div class="left_sidebar">
-                                <i><img src="<?= base_url('assets') ?>/Images/price.svg" alt="price"></i>
+                                <i><img src="<?= base_url('assets') ?>/images/price.svg" alt="price"></i>
                             </div>
                             <div class="right">
                                 <div class="sub_item1">
                                     <div class="sub_item1_left">
-                                        <small>$15.99</small>
+                                        <small>$<?=$product->price?></small>
                                     </div>
                                     <div class="sub_item1_right">
-                                        <img src="<?= base_url('assets') ?>/Images/info.svg" alt="">
+                                        <img src="<?= base_url('assets') ?>/images/info.svg" alt="">
                                     </div>
                                 </div>
                                 <div class="sub_item2">
@@ -71,15 +80,15 @@
                     <div class="col-sm items pt-4 pb-4 mt-2 mb-2 ">
                         <div class="items_main">
                             <div class="left_sidebar">
-                                <i><img src="<?= base_url('assets') ?>/Images/growning..svg" alt="Profit"></i>
+                                <i><img src="<?= base_url('assets') ?>/images/growning..svg" alt="Profit"></i>
                             </div>
                             <div class="right">
                                 <div class="sub_item1">
                                     <div class="sub_item1_left">
-                                        <small>$9</small>
+                                        <small>$<?=$product->profit?></small>
                                     </div>
                                     <div class="sub_item1_right">
-                                        <img src="<?= base_url('assets') ?>/Images/info.svg" alt="">
+                                        <img src="<?= base_url('assets') ?>/images/info.svg" alt="">
                                     </div>
                                 </div>
                                 <div class="sub_item2">
@@ -90,7 +99,7 @@
                     </div>
                 </div>
                 <div class="row row3 justify-content-md-center mt-4">
-                    <div class="col-md-12  p-0">
+                    <div class="bg-gray-300 col-md-12  p-0">
                         <nav>
                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Product Description</a>
@@ -100,45 +109,41 @@
                         </nav>
                         <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                             <div class="tab-pane fade show active pl-3 pr-3" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                                <h5>The fastest rubber band gun in the west</h5>
-                                <p>The most iconic handgun now comes in a rubber shooting form! Slingo is as fun as deadly, it fires up to six rubber bands at lighting speed and western precision!</p>
-                                <p>No one will suspect what it is when you fold it in half. Alternatively use it as a keychain and put it in your pocket to be prepared for a rubber band duel at any time.
-                                </p>
-                                <p>Slingo is quick to draw, fire and reload to make your hand the fastest in the west! Load up a round and let’s see who will hit their mark in the shortest amount of time!
-                                </p>
-                                <h5>Why Slingo is for you
-                                </h5>
-                                <p>Always draw first- Slingo shoots fast and hard at a distance. Pull the trigger and your band will always hit first on target!
-                                </p>
-                                <p>Fits your holster- Fold it in half and it’ll fit in the smallest pocket you have. When Slingo is on you it’s always concealed!
-                                </p>
-                                <p>A bullet for everyone- Slingo is quick to reload and holds up to six rubber bands as ammo for tight and accurate bursts of fire!
-                                </p>
-                                <p>Slingo is the ultimate choice- Lock and load your rubber band gun for some western gun slinging action! No cowboy will outduel you with Slingo in hand!
-                                </p>
+                                <?=$product->description?>
                             </div>
                             <div class="tab-pane fade pl-3 pr-3" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                 <div class="row row_img justify-content-md-center mt-4">
                                     <div class="col-md-6  p-0">
                                         <div class="embed-responsive embed-responsive-16by9">
-                                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/v64KOxKVLVg" allowfullscreen></iframe>
+                                            <?php
+                                            if($product->video_ad_1):
+                                            ?>
+                                            <video  class="embed-responsive-item" controls src="<?=$product->video_ad_1?>" allowfullscreen></video>
+                                            <?php endif; ?>
                                         </div>
                                         <div class="links_p">
-                                            <p><a href="#link"> Video Ad #1</a></p>
-                                            <p><a href="#link">Video Ad #2</a></p>
+                                             <?php
+                                            if($product->video_ad_1):
+                                            ?>
+                                            <p><a href="<?=$product->video_ad_1?>"> Video Ad #1</a></p>
+                                             <?php endif; ?>
+                                             <?php if($product->video_ad_2): ?>
+                                            <p><a href="<?=$product->video_ad_2?>">Video Ad #2</a></p>
+                                             <?php endif; ?>
                                         </div>
-                                        <button class="btn btn-block btn-outline-primary mb-4">Downlaod Attachments</button>
+                                         <?php if($product->thumbnail): ?>
                                         <div class="col">
                                             <div class="thumbnail_image">
-                                                <img src="<?= base_url('assets') ?>/Images/Mini_Metal_Folding_Rubber_Gun_with_Keychain_T.jpg" alt="thumbnail" class="img-thumbnail">
+                                                <img src="<?=$product->thumbnail?>" alt="thumbnail" class="img-thumbnail">
                                             </div>
                                             <p>Thumbnail</p>
                                         </div>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>
                             <div class="tab-pane fade pl-3 pr-3" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                                <p>Keychain, Gift, Home office, Boredom</p>
+                                <p><?=$product->facebook_targeting?></p>
                             </div>
                         </div>
                     </div>
@@ -149,59 +154,73 @@
                         <div class="last_item_main">
                             <div class="item_last1">
                                 <div class="item_last1_sub">
-                                    <img src="<?= base_url('assets') ?>/Images/like.svg" alt="like">
-                                    <p>13700</p>
+                                    <img src="<?= base_url('assets') ?>/images/like.svg" alt="like">
+                                    <p><?=$product->likes?></p>
                                 </div>
                                 <div class="item_last2_sub">
-                                    <img src="<?= base_url('assets') ?>/Images/comments.svg" alt="commenst">
-                                    <p>4500</p>
+                                    <img src="<?= base_url('assets') ?>/images/comments.svg" alt="commenst">
+                                    <p><?=$product->comments?></p>
                                 </div>
                                 <div class="item_last3_sub">
-                                    <img src="<?= base_url('assets') ?>/Images/repost..svg" alt="repost">
-                                    <p>9600</p>
+                                    <img src="<?= base_url('assets') ?>/images/repost..svg" alt="repost">
+                                    <p><?=$product->shares?></p>
                                 </div>
                             </div>
                             <div class="item_last2"></div>
-                            <a href="#">View Competitors ad</a>
+                            <?php if($product->competitor_ad): ?>
+                            <a href="<?=$product->competitor_ad?>">View Competitors ad</a>
+                            <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-sm items pt-2 pb-2 mr-4 mt-2 mb-2">
                         <h6> Aliexpress </h6>
                         <div class="last_item_main aliexpress">
+                             <?php if($product->supplier_1): ?>
                             <div class="aliexpress_item1">
-                                <a href="#">Supplier 1</a>
-                                <p>Order=0</p>
+                                <a href="<?=$product->supplier_1?>">Supplier 1</a>
+                                <p>Order=<?=$product->supplier_1_order?></p>
                             </div>
+                             <?php endif; ?>
+                            <?php if($product->supplier_2): ?>
                             <div class="aliexpress_item2">
-                                <a href="#">Supplier 2</a>
-                                <p>Order=0</p>
+                                <a href="<?=$product->supplier_2?>">Supplier 2</a>
+                                <p>Order=<?=$product->supplier_2_order?></p>
                             </div>
+                               <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-sm items pt-2 pb-2  mt-2 mb-2">
                         <h6>Amazon</h6>
                         <div class="last_item_main amazon">
-
+                            <?php if($product->product_1): ?>
                             <div class="amazon_item1">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star last"></i>
-                                <p>22 Reviews</p>
-                                <a href="#">View Product 1</a>
+                                <?php $a=0;for($i=1;$i<=$product->product_1_ratings;$i++){ $a++; ?>
+                                <i class="fas fa-star"></i>
+                                <?php } ?>
+                                <?php for($i=$a;$i<5;$i++){  ?>
+                                <i class="fas fa-star last"></i>
+                                <?php } ?>
+                                <p><?=$product->product_1_reviews?> Reviews</p>
+                                <a href="<?=$product->product_1?>">View Product 1</a>
 
                             </div>
-                            <div class="amazon_item2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star last"></i>
-                                <p>12 Reviews</p>
-                                <a href="#">View Product 2</a>
+                            <?php endif; ?>
+                            <?php if($product->product_2): ?>
+                            <div class="amazon_item2">
+                                <?php $a=0;for($i=1;$i<=$product->product_2_ratings;$i++){ $a++; ?>
+                                <i class="fas fa-star"></i>
+                                <?php } ?>
+                                <?php for($i=$a;$i<5;$i++){  ?>
+                                <i class="fas fa-star last"></i>
+                                <?php } ?>
+                                <p><?=$product->product_2_reviews?> Reviews</p>
+                                <a href="<?=$product->product_2?>">View Product 2</a>
 
                             </div>
+                            <?php endif; ?>
                         </div>
                     </div></div>
             </div>
         </div>
     </div>
-    <?php
-    echo "<pre>";
-    if ($product) {
-        print_r($product);
-    }
-    ?>
 </div>

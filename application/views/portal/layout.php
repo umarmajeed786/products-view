@@ -99,7 +99,6 @@
                             </li>
                             <?php
                         endif;
-                        if (check_route('public-products', 'get')):
                             ?>
                             <li class="nav-item <?= active_menu('public-products') ?>">
                                 <a class="nav-item-hold" href="<?= base_url('public-products') ?>">
@@ -108,7 +107,6 @@
                                 <div class="triangle"></div>
                             </li>
                             <?php
-                        endif;
                         if (check_route('user-roles', 'get')):
                             ?>
                             <li class="nav-item <?= active_menu('user-roles') ?>">
@@ -171,7 +169,7 @@
                         <div class="d-flex align-items-center">
                             <img class="logo" src="<?= base_url('assets') ?>/images/logo.png" alt="">
                             <div>
-                                <p class="m-0">&copy; <?= date('Y') ?> <a target="_blank" href="https://pakistanlawyer.com">Pakistan Lawyer</a> || Developed By  <a target="_blank" href="https://umarmajeed.com/">UmarMajeed.com</a></p>
+                                <p class="m-0">&copy; <?= date('Y') ?> <a href="javascript:">Spycity</a> || Developed By  <a target="_blank" href="https://umarmajeed.com/">UmarMajeed.com</a></p>
                             </div>
                         </div>
                     </div>

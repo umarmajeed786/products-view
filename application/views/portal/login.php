@@ -15,12 +15,12 @@
     </head>
 
     <body>
-        <div class="auth-layout-wrap" style="background-image: url(<?= base_url('assets') ?>/images/login.png)">
+        <div class="auth-layout-wrap" >
             <div class="auth-content" style="width: 100%; max-width: 70%">
                 <div class="card o-hidden text-center" style="background:none; box-shadow:none">
                     <div class="row">
-                        <div class="col-md-4"></div>
-                        <div class="col-md-4" style="background: #fff">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
                             <div class="p-4">
                                 <div class="auth-logo text-center mb-4">
                                     <img src="<?= base_url('assets') ?>/images/logo.png">

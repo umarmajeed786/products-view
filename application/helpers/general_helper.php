@@ -70,7 +70,6 @@ function get_city_name_by_id($city_id) {
 }
 
 function check_route($url, $type) {
-    return TRUE;
     $CI = get_instance();
     $CI->load->model('portal_model');
     return $CI->portal_model->get_users_route_access($url, $type);

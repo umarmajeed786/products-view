@@ -10,11 +10,13 @@
                 ?>
                 <div class="col-sm-6 col-md-3">
                     <div class="thumbnail" >
-                        <img src="<?= base_url('uploads/images/') . $value->cover_image ?>" class="img-responsive">
+                        <a href="<?= base_url('public-product-detail/') . $value->product_id . '/' . clean($value->product_name) ?>">
+                            <img style="height: 295px;width: 295px" src="<?= base_url('uploads/images/') . $value->cover_image ?>" class="img-responsive">
+                        </a>
                         <div class="caption">
                             <div class="row">
                                 <div class="col-md-12 col-xs-12">
-                                    <h3><a href="<?= base_url('public-product-detail/') . $value->product_id . '/' . $value->product_name ?>"><?= $value->product_name ?></a></h3>
+                                    <h3><a href="<?= base_url('public-product-detail/') . $value->product_id . '/' . clean($value->product_name)?>"><?= $value->product_name ?></a></h3>
                                 </div>
 
                             </div>
